@@ -1,8 +1,9 @@
 package org.example.command;
 
-import org.example.DataGroup;
+import org.example.MyArrayList;
+import org.example.Person;
 
 public interface Command {
-    void execute(DataGroup dataGroup);
+    void execute(MyArrayList<Person> persons);
 
 }

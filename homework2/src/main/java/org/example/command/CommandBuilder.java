@@ -1,10 +1,16 @@
 package org.example.command;
-import org.example.*;
+
+import org.example.FileDataLoader;
+import org.example.MyArrayList;
+import org.example.Person;
+import org.example.StudentService;
+
 import java.io.IOException;
 import java.util.Scanner;
 
-public class CommandBuilder {
+public class CommandBuilder{
     private MyArrayList<Person> persons;
+
     public void getPersons() throws IOException {
         StudentService studentService = new StudentService();
         studentService.setPersons(new FileDataLoader());
@@ -25,43 +31,21 @@ public class CommandBuilder {
         switch (command) {
             case "1":
                 CommandGetAverageScore commandGetAverageScore = new CommandGetAverageScore();
-                commandGetAverageScore.execute(getClassroomDataGroups());
+                commandGetAverageScore.execute(persons);
                 getManual();
             case "2":
                 CommandGetExcellentStudents commandGetExcellentStudents = new CommandGetExcellentStudents();
-                commandGetExcellentStudents.execute(personAgeDataGroups());
+                commandGetExcellentStudents.execute(persons);
                 getManual();
             case "3":
                 CommandGetLastNameStudents commandGetLastNameStudents = new CommandGetLastNameStudents();
-                commandGetLastNameStudents.execute(personNameDataGroup());
+                commandGetLastNameStudents.execute(persons);
                 getManual();
             case "4":
                 System.exit(0);
             default:
                 getManual();
         }
-    }
-
-    public DataGroup getClassroomDataGroups()  {
-        DataGroup classroomDataGroups = new DataGroup();
-        for (int i = 0; i < persons.size(); i++) {
-            classroomDataGroups.addPerson(persons.get(i), persons.get(i).getGroup(), classroomDataGroups.getSizeTable(), (a, b) -> a % b);
-        }
-        return classroomDataGroups;
-    }
-    public DataGroup personAgeDataGroups()  {
-        DataGroup personAgeDataGroups = new DataGroup();
-        for (int i = 0; i < persons.size(); i++) {
-            personAgeDataGroups.addPerson(persons.get(i), persons.get(i).getAge(), personAgeDataGroups.getSizeTable(), (a, b) -> a % b);
-        }
-        return personAgeDataGroups;
-    }
-    public DataGroup personNameDataGroup()  {
-        DataGroup personNameDataGroup = new DataGroup();
-        for (int i = 0; i < persons.size(); i++) {
-            personNameDataGroup.addPerson(persons.get(i), ((int)persons.get(i).getName().toUpperCase().charAt(0)), personNameDataGroup.getSizeTable(), (a, b) -> a % b);
-        }
-        return personNameDataGroup;
     }
 
 }
