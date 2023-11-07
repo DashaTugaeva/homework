@@ -1,4 +1,7 @@
-package org.example;
+package org.example.loader;
+
+import org.example.model.Person;
+import org.example.util.MyArrayList;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

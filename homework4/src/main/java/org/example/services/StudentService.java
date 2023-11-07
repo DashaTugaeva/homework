@@ -1,4 +1,8 @@
-package org.example;
+package org.example.services;
+
+import org.example.loader.DataLoader;
+import org.example.model.Person;
+import org.example.util.MyArrayList;
 
 import java.io.IOException;
 

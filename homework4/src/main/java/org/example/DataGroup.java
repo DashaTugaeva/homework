@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.model.Person;
+import org.example.util.Entry;
+import org.example.util.MyArrayList;
+
 public class DataGroup {
     Entry<Integer, MyArrayList<Person>>[] table = new Entry[50];
     public void addPerson(Person person, int a, int size, GroupCriterion<Integer, Integer> function) {

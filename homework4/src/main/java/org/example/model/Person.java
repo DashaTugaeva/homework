@@ -1,16 +1,16 @@
-package org.example;
+package org.example.model;
 
 public class Person {
-    public String name;
-    public int age;
-    public int group;
-    public int physicsScore;
-    public int mathematicsScore;
-    public int rusScore;
-    public int literatureScore;
-    public int geometryScore;
-    public int informaticsScore;
-    public double averageScore;
+    private String name;
+    private int age;
+    private int group;
+    private int physicsScore;
+    private int mathematicsScore;
+    private int rusScore;
+    private int literatureScore;
+    private int geometryScore;
+    private int informaticsScore;
+    private double averageScore;
 
     public int getPhysicsScore() {
         return physicsScore;

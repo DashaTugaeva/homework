@@ -1,5 +1,10 @@
 package org.example;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.loader.FileDataLoader;
+import org.example.model.Person;
+import org.example.model.PersonInfo;
+import org.example.services.StudentService;
+import org.example.util.MyArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +16,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/*"})
 public class MyServlet extends HttpServlet {
-    public MyArrayList<Person> personsList;
+    private MyArrayList<Person> personsList;
 
     public void setPersons() throws IOException {
         StudentService studentService = new StudentService();
@@ -21,7 +26,6 @@ public class MyServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setCharacterEncoding("UTF-16");
         if(personsList == null) setPersons();
         MyArrayList<Person> persons = personsList;
         try (var output = resp.getWriter()) {

@@ -1,9 +1,9 @@
 package org.example.command;
 
-import org.example.FileDataLoader;
-import org.example.MyArrayList;
-import org.example.Person;
-import org.example.StudentService;
+import org.example.loader.FileDataLoader;
+import org.example.util.MyArrayList;
+import org.example.model.Person;
+import org.example.services.StudentService;
 
 import java.io.IOException;
 import java.util.Scanner;

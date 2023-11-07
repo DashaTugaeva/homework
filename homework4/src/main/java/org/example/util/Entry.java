@@ -1,5 +1,5 @@
-package org.example;
-class Entry<K, V> {
+package org.example.util;
+public class Entry<K, V> {
     private K key;
     private V value;
     public Entry(K key, V value) {
